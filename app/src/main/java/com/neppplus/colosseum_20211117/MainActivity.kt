@@ -2,9 +2,11 @@ package com.neppplus.colosseum_20211117
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.databinding.DataBindingUtil
 import com.neppplus.colosseum_20211117.databinding.ActivityMainBinding
 import com.neppplus.colosseum_20211117.utils.ServerUtil
+import org.json.JSONObject
 
 class MainActivity : BaseActivity() {
 
@@ -26,7 +28,21 @@ class MainActivity : BaseActivity() {
 
 //            서버에서 이메일 / 비밀번호가 맞는 계정인지? 로그인 요청
 
-            ServerUtil.postRequestLogin(inputEmail, inputPw)
+            ServerUtil.postRequestLogin(
+                inputEmail,
+                inputPw,
+                object : ServerUtil.JsonResponseHandler {
+                    override fun onResponse(jsonObject: JSONObject) {
+
+//                    로그인 API를 호출하고 돌아온 상황
+//                    결과로 jsonObj 하나를 받아서 돌아온 상황
+
+                        Log.d("화면에서의 jsonObj", jsonObject.toString())
+
+                    }
+
+
+                })
 
         }
 
