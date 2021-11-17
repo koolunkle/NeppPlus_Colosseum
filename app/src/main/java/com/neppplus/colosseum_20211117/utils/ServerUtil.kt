@@ -2,8 +2,9 @@ package com.neppplus.colosseum_20211117.utils
 
 import android.provider.ContactsContract
 import android.util.Log
-import okhttp3.FormBody
-import okhttp3.Request
+import okhttp3.*
+import org.json.JSONObject
+import java.io.IOException
 
 class ServerUtil {
 
@@ -37,6 +38,38 @@ class ServerUtil {
                 .url(urlString)
                 .post(formData)
                 .build()
+
+//            4. 완성된 Request를 실제로 호출 => 클라이언트 역할.
+
+            val client = OkHttpClient()
+
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+
+//                    실패 : 물리적 접속 실패.
+//                    보통 토스트 띄우는 것으로 대체함.
+
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+
+//                    결과가 무엇이든 응답은 돌아온 상황.
+
+//                    응답의 본문(body)에 어떤 내용? -> 본문만 String으로 변환.
+
+                    val bodyString = response.body!!.string()
+
+//                    bodyString은 JSON 양식으로 가공됨. => 한글도 임시 변환된 상태 (encoding)
+
+//                    일반 String -> JSONObject로 변환 (한글도 원상복구)
+                    val jsonObj = JSONObject(bodyString)
+
+                    Log.d("서버응답", jsonObj.toString())
+
+                }
+
+
+            })
 
         }
 
