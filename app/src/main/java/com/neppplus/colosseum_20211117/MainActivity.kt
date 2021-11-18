@@ -27,14 +27,15 @@ class MainActivity : BaseActivity() {
 
     override fun setupEvents() {
 
-        binding.topicListView.setOnItemClickListener { adapterView, view, position, l -> }
+        binding.topicListView.setOnItemClickListener { adapterView, view, position, l ->
 
-        val clickedTopicData = mTopicList[position]
+            val clickedTopicData = mTopicList[position]
 
-        val myIntent = Intent(mContext, ViewTopicDetailActivity::class.java)
-        myIntent.putExtra("topic", clickedTopicData)
-        startActivity(myIntent)
+            val myIntent = Intent(mContext, ViewTopicDetailActivity::class.java)
+            myIntent.putExtra("topic", clickedTopicData)
+            startActivity(myIntent)
 
+        }
     }
 
     override fun setValues() {
