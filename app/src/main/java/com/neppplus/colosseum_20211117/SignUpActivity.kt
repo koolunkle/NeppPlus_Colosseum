@@ -29,6 +29,8 @@ class SignUpActivity : BaseActivity() {
 
 //            서버에 중복 확인 기능 요청  -> ServerUtil 이용
 
+            ServerUtil.getRequestDuplCheck("EMAIL", inputEmail, null)
+
 
         }
 

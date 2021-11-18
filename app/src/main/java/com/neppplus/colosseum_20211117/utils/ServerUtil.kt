@@ -3,6 +3,7 @@ package com.neppplus.colosseum_20211117.utils
 import android.provider.ContactsContract
 import android.util.Log
 import okhttp3.*
+import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import org.json.JSONObject
 import java.io.IOException
 
@@ -119,6 +120,32 @@ class ServerUtil {
                 }
 
             })
+
+
+        }
+
+
+//        중복 확인 함수 - GET
+
+        fun getRequestDuplCheck(type: String, value: String, handler: JsonResponseHandler?) {
+
+//            1. 어디로 가야? url + 어떤 파라미터 데이터? 같이 작성.
+
+//           url을 만드는 과정이 복잡함 => 한단계씩 쌓아나가는 식으로 URL 작성.
+
+            val urlBuilder = "${HOST_URL}/user_check".toHttpUrlOrNull()!!.newBuilder()  // 서버주소 / 기능주소 까지만.
+            urlBuilder.addEncodedQueryParameter("type", type)
+            urlBuilder.addEncodedQueryParameter("value", value)
+
+//            최종 완성 주소 -> String으로 저장.
+
+            val urlString = urlBuilder.toString()
+
+            Log.d("완성주소", urlString)
+
+//            3. 어떤 메소드 + 정보 종합 Request 생성
+
+//            실제 API 호출 - client
 
 
         }
