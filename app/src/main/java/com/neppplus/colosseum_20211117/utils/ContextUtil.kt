@@ -1,6 +1,7 @@
 package com.neppplus.colosseum_20211117.utils
 
 import android.content.Context
+import android.provider.ContactsContract
 
 class ContextUtil {
 
@@ -9,6 +10,16 @@ class ContextUtil {
         private val prefName = "ColosseumPref"
 
         private val TOKEN = "TOKEN"
+
+        private val LOGIN_EMAIL = "LOGIN_EMAIL"
+
+        fun setLoginEmail(context: Context, email: String) {
+
+            val pref = context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
+
+            pref.edit().putString(LOGIN_EMAIL, email).apply()
+
+        }
 
 //        token setter 함수
 
