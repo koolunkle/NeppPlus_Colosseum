@@ -81,6 +81,12 @@ class ServerUtil {
 
         }
 
+//        회원가입 함수 - PUT
+
+        fun putRequestSignUp() {
+
+        }
+
     }
 
 }

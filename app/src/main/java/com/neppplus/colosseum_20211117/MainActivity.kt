@@ -1,9 +1,14 @@
 package com.neppplus.colosseum_20211117
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings.Global.getString
+import android.provider.Settings.Secure.getString
+import android.provider.Settings.System.getString
 import android.util.Log
 import android.widget.Toast
+import androidx.core.content.res.TypedArrayUtils.getString
 import androidx.databinding.DataBindingUtil
 import com.neppplus.colosseum_20211117.databinding.ActivityMainBinding
 import com.neppplus.colosseum_20211117.utils.ServerUtil
@@ -21,6 +26,13 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+
+        binding.btnSignUp.setOnClickListener {
+
+            val myIntent = Intent(mContext, SignUpActivity::class.java)
+            startActivity(myIntent)
+
+        }
 
         binding.btnLogin.setOnClickListener {
 
@@ -55,7 +67,11 @@ class MainActivity : BaseActivity() {
 //                                  message String으로 실패 사유를 알려준다.
 //                                  JSON Parsing으로 추출해서 -> "로그인 실패" 대신 서버가 알려준 실패 사유를 띄우자.
 
-                                Toast.makeText(mContext, "로그인 실패", Toast.LENGTH_SHORT).show()
+                                val message = jsonObject.getString("message")
+
+                                Log.d("로그인 실패 사유", message.toString())
+
+                                Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
                             }
 
                         }
