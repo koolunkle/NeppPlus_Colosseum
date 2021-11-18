@@ -9,6 +9,34 @@
         android:orientation="vertical"
         tools:context=".ViewTopicDetailActivity">
 
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp">
+
+            <ImageView
+                android:id="@+id/imgTopic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#80000000" />
+
+            <TextView
+                android:id="@+id/txtTopicTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="토론 주제 자리"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+        </FrameLayout>
+
     </LinearLayout>
 
 
