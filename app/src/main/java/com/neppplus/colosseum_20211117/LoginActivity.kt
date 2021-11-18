@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.neppplus.colosseum_20211117.databinding.ActivityLoginBinding
+import com.neppplus.colosseum_20211117.utils.ContextUtil
 import com.neppplus.colosseum_20211117.utils.ServerUtil
 import org.json.JSONObject
 
@@ -72,9 +73,11 @@ class LoginActivity : BaseActivity() {
                                 ).show()
                                 
 //                                서버가 내려준 토큰 값도 추출
-                                val toekn = dataObj.getString("token")
+                                val token = dataObj.getString("token")
                                 
 //                                SharedPreferences라는 공간에 토큰 값 저장
+
+                                ContextUtil.setToken(mContext, token)
 
 //                                메인으로이동
 
