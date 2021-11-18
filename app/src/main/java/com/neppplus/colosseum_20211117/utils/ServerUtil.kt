@@ -1,5 +1,6 @@
 package com.neppplus.colosseum_20211117.utils
 
+import android.content.Context
 import android.provider.ContactsContract
 import android.util.Log
 import okhttp3.*
@@ -149,6 +150,48 @@ class ServerUtil {
             val request = Request.Builder()
                 .url(urlString)
                 .get()
+                .build()
+
+//            실제 API 호출 - client
+
+            val client = OkHttpClient()
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    val bodyString = response.body!!.string()
+                    val jsonObj = JSONObject(bodyString)
+                    Log.d("서버응답", jsonObj.toString())
+                    handler?.onResponse(jsonObj)
+                }
+
+
+            })
+
+
+        }
+
+//        연습 - 내 정보 가져오기 (토큰 첨부) - GET
+
+        fun getRequestMyInfo(context: Context, handler: JsonResponseHandler?) {
+
+            val urlBuilder =
+                "${HOST_URL}/user_info".toHttpUrlOrNull()!!.newBuilder()  // 서버주소 / 기능주소 까지만.
+//            urlBuilder.addEncodedQueryParameter("type", type)
+//            urlBuilder.addEncodedQueryParameter("value", value)
+
+            val urlString = urlBuilder.toString()
+
+            Log.d("완성주소", urlString)
+
+//            Request를 만들 때 헤더도 같이 첨부
+
+            val request = Request.Builder()
+                .url(urlString)
+                .get()
+                .header("X-Http-Token", ContextUtil.getToken(context))
                 .build()
 
 //            실제 API 호출 - client
