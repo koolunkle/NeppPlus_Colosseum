@@ -82,7 +82,6 @@ class LoginActivity : BaseActivity() {
 //                                아이디로 입력한 이메일 -> SharedPreferences에 저장
                                 ContextUtil.setLoginEmail(mContext, inputEmail)
 
-
 //                                메인으로이동
 
                                 val myIntent = Intent(mContext, MainActivity::class.java)
@@ -115,6 +114,8 @@ class LoginActivity : BaseActivity() {
     }
 
     override fun setValues() {
+
+        binding.edtEmail.setText( ContextUtil.getLoginEmail(mContext) )
 
     }
 
