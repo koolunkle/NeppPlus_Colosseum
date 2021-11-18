@@ -65,7 +65,20 @@ class LoginActivity : BaseActivity() {
                                 val userObj = dataObj.getJSONObject("user")
                                 val nick_name = userObj.getString("nick_name")
 
-                                Toast.makeText(mContext, "${nick_name}님, 환영합니다!", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    mContext,
+                                    "${nick_name}님, 환영합니다!",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+
+//                                메인으로이동
+
+                                val myIntent = Intent(mContext, MainActivity::class.java)
+                                startActivity(myIntent)
+
+//                                로그인 화면 종료
+                                finish()
+
                             } else {
 //                                  message String으로 실패 사유를 알려준다.
 //                                  JSON Parsing으로 추출해서 -> "로그인 실패" 대신 서버가 알려준 실패 사유를 띄우자.
