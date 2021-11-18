@@ -133,7 +133,8 @@ class ServerUtil {
 
 //           url을 만드는 과정이 복잡함 => 한단계씩 쌓아나가는 식으로 URL 작성.
 
-            val urlBuilder = "${HOST_URL}/user_check".toHttpUrlOrNull()!!.newBuilder()  // 서버주소 / 기능주소 까지만.
+            val urlBuilder =
+                "${HOST_URL}/user_check".toHttpUrlOrNull()!!.newBuilder()  // 서버주소 / 기능주소 까지만.
             urlBuilder.addEncodedQueryParameter("type", type)
             urlBuilder.addEncodedQueryParameter("value", value)
 
@@ -145,7 +146,28 @@ class ServerUtil {
 
 //            3. 어떤 메소드 + 정보 종합 Request 생성
 
+            val request = Request.Builder()
+                .url(urlString)
+                .get()
+                .build()
+
 //            실제 API 호출 - client
+
+            val client = OkHttpClient()
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    val bodyString = response.body!!.string()
+                    val jsonObj = JSONObject(bodyString)
+                    Log.d("서버응답", jsonObj.toString())
+                    handler?.onResponse(jsonObj)
+                }
+
+
+            })
 
 
         }
