@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -19,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="이메일 양식으로 입력"
-            android:inputType="textEmailAddress"/>
+            android:inputType="textEmailAddress" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -31,8 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="8자리 이상 입력"
-            android:inputType="textPassword"/>
-
+            android:inputType="textPassword" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -44,8 +44,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="자유 입력"
-            android:singleLine="true"
-            android:inputType="textEmailAddress"/>
+            android:inputType="textEmailAddress"
+            android:singleLine="true" />
 
         <Button
             android:id="@+id/btnOk"
