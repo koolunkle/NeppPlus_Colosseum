@@ -261,7 +261,7 @@ class ServerUtil {
 
         fun getRequestTopicDetail(
             context: Context,
-            topicId: Int,
+            topicId: Int, orderType: String,
             handler: JsonResponseHandler?
         ) {
 
@@ -272,7 +272,7 @@ class ServerUtil {
 //            주소 양식 : Query - /topic?name=조경진   QueryParameter 라고 부름.
             urlBuilder.addPathSegment(topicId.toString())
 
-//            urlBuilder.addEncodedQueryParameter("type", type)
+            urlBuilder.addEncodedQueryParameter("order_type", orderType)
 //            urlBuilder.addEncodedQueryParameter("value", value)
 
 
