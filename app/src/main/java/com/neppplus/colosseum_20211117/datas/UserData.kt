@@ -10,7 +10,7 @@ class UserData {
 
     companion object {
 
-        fun getUserDataFromServer(jsonObject: JSONObject): UserData {
+        fun getUserDataFromJson(jsonObject: JSONObject): UserData {
 
             val userData = UserData()
 

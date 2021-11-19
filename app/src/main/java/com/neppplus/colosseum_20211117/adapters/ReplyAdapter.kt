@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.neppplus.colosseum_20211117.R
 import com.neppplus.colosseum_20211117.datas.ReplyData
 import com.neppplus.colosseum_20211117.datas.TopicData
+import org.w3c.dom.Text
 
 class ReplyAdapter(
     val mContext: Context,
@@ -35,8 +36,11 @@ class ReplyAdapter(
         val data = mList[position]
 
         val txtReplyContent = row.findViewById<TextView>(R.id.txtReplyContent)
+        val txtWriterNickname = row.findViewById<TextView>(R.id.txtWriterNickname)
 
         txtReplyContent.text = data.content
+
+        txtWriterNickname.text = data.writer.nickname
 
         return row
 
