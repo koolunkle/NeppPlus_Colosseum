@@ -2,6 +2,7 @@ package com.neppplus.colosseum_20211117
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.neppplus.colosseum_20211117.databinding.ActivityViewTopicDetailBinding
@@ -28,12 +29,33 @@ class ViewTopicDetailActivity : BaseActivity() {
 
 //            첫 진영에 투표 -> 서버 API 호출 -> 이 화면 새로고침
 
-            ServerUtil.postRequestVote(mContext, mTopicData.sideList[0].id, object : ServerUtil.JsonResponseHandler {
-                override fun onResponse(jsonObject: JSONObject) {
+            ServerUtil.postRequestVote(
+                mContext,
+                mTopicData.sideList[0].id,
+                object : ServerUtil.JsonResponseHandler {
+                    override fun onResponse(jsonObject: JSONObject) {
 
-                }
+                        val code = jsonObject.getInt("code")
 
-            })
+                        if (code == 200) {
+
+//                            득표 수를 서버에서 다시 받아오자 (새로고침)
+//                            득표 수? -> 토론 상세 조회 -> 선택진영 목록 -> 득표수 새로 파싱
+                            getTopicDetailFromServer()
+
+                        } else {
+
+                            val message = jsonObject.getString("message")
+
+                            runOnUiThread {
+                                Toast.makeText(mContext, "message", Toast.LENGTH_SHORT).show()
+                            }
+
+                        }
+
+                    }
+
+                })
 
         }
 
