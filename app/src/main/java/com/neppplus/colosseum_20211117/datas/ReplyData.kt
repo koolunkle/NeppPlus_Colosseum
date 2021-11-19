@@ -9,6 +9,10 @@ class ReplyData {
 
     var writer = UserData()  // 사용자 데이터가 들어올 것이라고 명시
 
+//    어느 진영에 대한 댓글?
+
+    var selectedSide = SideData()
+
     companion object {
 
         fun getReplyDataFromJson(jsonObject: JSONObject): ReplyData {
@@ -20,6 +24,9 @@ class ReplyData {
 
             val userObj = jsonObject.getJSONObject("user")
             replyData.writer = UserData.getUserDataFromJson(userObj)
+
+            val sideObj = jsonObject.getJSONObject("selected_Side")
+            replyData.selectedSide = SideData.getSideDataFromJson(sideObj)
 
             return replyData
 

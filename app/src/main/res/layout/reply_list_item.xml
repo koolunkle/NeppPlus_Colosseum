@@ -5,11 +5,25 @@
     android:orientation="vertical"
     android:padding="10dp">
 
-    <TextView
-        android:id="@+id/txtWriterNickname"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="작성자 닉네임" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtWriterNickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="작성자 닉네임" />
+
+        <TextView
+            android:id="@+id/txtSelectedSide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="(진영)" />
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/txtReplyContent"

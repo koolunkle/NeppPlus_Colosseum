@@ -37,10 +37,13 @@ class ReplyAdapter(
 
         val txtReplyContent = row.findViewById<TextView>(R.id.txtReplyContent)
         val txtWriterNickname = row.findViewById<TextView>(R.id.txtWriterNickname)
+        val txtSelectedSide = row.findViewById<TextView>(R.id.txtSelectedSide)
 
         txtReplyContent.text = data.content
 
         txtWriterNickname.text = data.writer.nickname
+
+        txtSelectedSide.text = "(${data.selectedSide.title})"
 
         return row
 
