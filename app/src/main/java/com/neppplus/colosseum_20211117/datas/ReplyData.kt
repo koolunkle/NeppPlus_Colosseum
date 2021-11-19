@@ -25,7 +25,7 @@ class ReplyData {
             val userObj = jsonObject.getJSONObject("user")
             replyData.writer = UserData.getUserDataFromJson(userObj)
 
-            val sideObj = jsonObject.getJSONObject("selected_Side")
+            val sideObj = jsonObject.getJSONObject("selected_side")
             replyData.selectedSide = SideData.getSideDataFromJson(sideObj)
 
             return replyData

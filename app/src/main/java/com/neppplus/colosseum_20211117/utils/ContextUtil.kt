@@ -13,6 +13,21 @@ class ContextUtil {
 
         private val LOGIN_EMAIL = "LOGIN_EMAIL"
 
+        private val AUTO_LOGIN = "AUTO_LOGIN"
+
+        fun setAutoLogin(context: Context, autoLogin: Boolean) {
+
+            val pref = context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
+            pref.edit().putBoolean(AUTO_LOGIN, autoLogin).apply()
+        }
+
+        fun getAutoLogin(context: Context): Boolean {
+
+            val pref = context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
+            return pref.getBoolean(AUTO_LOGIN, false)
+
+        }
+
         fun setLoginEmail(context: Context, email: String) {
 
             val pref = context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
@@ -35,7 +50,7 @@ class ContextUtil {
 
         }
 
-        fun getLoginEmail(context: Context) : String {
+        fun getLoginEmail(context: Context): String {
 
             val pref = context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
             return pref.getString(LOGIN_EMAIL, "")!!
