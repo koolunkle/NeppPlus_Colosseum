@@ -70,10 +70,7 @@ class MainActivity : BaseActivity() {
                     val topicObj = topicsArr.getJSONObject(i)
 
 //                    목록에 뿌려줄 TopicData 형태로 변환
-                    val topicData = TopicData()
-                    topicData.id = topicObj.getInt("id")
-                    topicData.title = topicObj.getString("title")
-                    topicData.imageURL = topicObj.getString("img_url")
+                    val topicData = TopicData.getTopicDataFromJson(topicObj)
 
 //                    완성된 topicData => mTopicList에 추가
 
