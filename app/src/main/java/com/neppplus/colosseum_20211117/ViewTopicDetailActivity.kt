@@ -79,6 +79,9 @@ class ViewTopicDetailActivity : BaseActivity() {
         binding.txtSideTitle01.text = mTopicData.sideList[0].title
         binding.txtSideTitle02.text = mTopicData.sideList[1].title
 
+        binding.txtSideVoteCount01.text = "${mTopicData.sideList[0].voteCount}표"
+        binding.txtSideVoteCount02.text = "${mTopicData.sideList[1].voteCount}표"
+
     }
 
 
