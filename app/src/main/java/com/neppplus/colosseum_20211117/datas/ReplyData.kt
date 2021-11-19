@@ -84,6 +84,9 @@ class ReplyData {
 
             replyData.likeCount = jsonObject.getInt("like_count")
             replyData.dislikeCount = jsonObject.getInt("dislike_count")
+            replyData.myLike = jsonObject.getBoolean("my_like")
+            replyData.myDislike = jsonObject.getBoolean("my_dislike")
+            replyData.replyCount = jsonObject.getInt("reply_count")
 
             return replyData
 

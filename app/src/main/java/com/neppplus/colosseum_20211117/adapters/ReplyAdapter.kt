@@ -40,6 +40,9 @@ class ReplyAdapter(
         val txtWriterNickname = row.findViewById<TextView>(R.id.txtWriterNickname)
         val txtSelectedSide = row.findViewById<TextView>(R.id.txtSelectedSide)
         val txtCreatedAt = row.findViewById<TextView>(R.id.txtCreatedAt)
+        val txtReplyCount = row.findViewById<TextView>(R.id.txtReplyCount)
+        val txtLikeCount = row.findViewById<TextView>(R.id.txtLikeCount)
+        val txtDislikeCount = row.findViewById<TextView>(R.id.txtDislikeCount)
 
         txtReplyContent.text = data.content
 
@@ -48,6 +51,10 @@ class ReplyAdapter(
         txtSelectedSide.text = "(${data.selectedSide.title})"
 
         txtCreatedAt.text = data.getFormattedCreatedAt()
+
+        txtReplyCount.text = "답글 : ${data.replyCount}개"
+        txtLikeCount.text = "좋아요 : ${data.likeCount}개"
+        txtDislikeCount.text = "싫어요 : ${data.dislikeCount}개"
 
         return row
 
