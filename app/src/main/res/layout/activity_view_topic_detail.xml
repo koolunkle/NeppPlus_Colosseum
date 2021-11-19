@@ -57,13 +57,29 @@
                     android:orientation="horizontal">
 
 
-                    <TextView
-                        android:id="@+id/txtSideTitle01"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="첫 진영"
-                        android:textColor="@color/white"
-                        android:textSize="17sp" />
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtSideTitle01"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="첫 진영"
+                            android:textColor="@color/white"
+                            android:textSize="17sp" />
+
+                        <TextView
+                            android:id="@+id/txtSideVoteCount01"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0표"
+                            android:textColor="@color/white"
+                            android:textSize="15sp" />
+
+                    </LinearLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -73,13 +89,30 @@
                         android:text="Vs."
                         android:textColor="@color/white" />
 
-                    <TextView
-                        android:id="@+id/txtSideTitle02"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="둘째 진영"
-                        android:textColor="@color/white"
-                        android:textSize="17sp" />
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtSideTitle02"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="둘째 진영"
+                            android:textColor="@color/white"
+                            android:textSize="17sp" />
+
+                        <TextView
+                            android:id="@+id/txtSideVoteCount02"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0표"
+                            android:textColor="@color/white"
+                            android:textSize="15sp" />
+
+                    </LinearLayout>
+
 
                 </LinearLayout>
 
