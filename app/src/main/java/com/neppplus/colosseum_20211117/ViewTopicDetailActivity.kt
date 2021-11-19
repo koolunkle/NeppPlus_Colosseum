@@ -27,6 +27,7 @@ class ViewTopicDetailActivity : BaseActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_view_topic_detail)
         setupEvents()
         setValues()
+
     }
 
     override fun setupEvents() {
