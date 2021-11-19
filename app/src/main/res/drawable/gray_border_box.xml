@@ -11,7 +11,7 @@
                     android:shape="rectangle">
 
                     <solid
-                        android:color="#DFDFDF" />
+                        android:color="@color/gray" />
 
                 </shape>
             </item>
@@ -47,7 +47,7 @@
                     android:shape="rectangle">
 
                     <solid
-                        android:color="#DFDFDF" />
+                        android:color="@color/gray" />
 
                 </shape>
             </item>
