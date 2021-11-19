@@ -1,8 +1,9 @@
 package com.neppplus.colosseum_20211117.datas
 
 import org.json.JSONObject
+import java.io.Serializable
 
-class SideData {
+class SideData : Serializable {
 
     var id = 0
     var title = ""
