@@ -92,6 +92,8 @@ class ReplyAdapter(
                 object : ServerUtil.JsonResponseHandler {
                     override fun onResponse(jsonObj: JSONObject) {
 
+                        (mContext as ViewTopicDetailActivity).getTopicDetailFromServer()
+
                     }
 
                 })
