@@ -16,20 +16,36 @@
             android:scaleType="centerCrop"
             android:src="@mipmap/ic_launcher" />
 
-
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#80000000" />
 
-        <TextView
-            android:id="@+id/txtTopicTitle"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="토론 주제 표시 자리"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtTopicTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="토론 주제 표시 자리"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/txtReplyCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="현재 댓글 갯수 : 0개"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+        </LinearLayout>
 
 
     </FrameLayout>
