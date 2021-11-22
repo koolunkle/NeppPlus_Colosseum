@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Colosseum_20211117"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ViewReplyDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".EditReplyActivity"
             android:exported="false" />
         <activity
