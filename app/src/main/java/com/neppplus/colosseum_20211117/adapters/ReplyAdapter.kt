@@ -69,7 +69,7 @@ class ReplyAdapter(
 
         } else {
 
-            txtDislikeCount.setBackgroundResource(R.drawable.gray_border_box)
+            txtLikeCount.setBackgroundResource(R.drawable.gray_border_box)
 
             txtLikeCount.setTextColor(mContext.resources.getColor(R.color.gray))
 
@@ -84,7 +84,7 @@ class ReplyAdapter(
                 data.id,
                 true,
                 object : ServerUtil.JsonResponseHandler {
-                    override fun onResponse(jsonObj: JSONObject) {
+                    override fun onResponse(jsonObject: JSONObject) {
 
 //                토론 상세 현황 화면의 기능 활용
 //                => 토론 주제 상세 다시 가져오기 (댓글도 가져오게 됨)
@@ -97,6 +97,24 @@ class ReplyAdapter(
 
         }
 
+
+//        내 싫어요 여부에 따른 테두리 색 변경 / 글씨 색 변경
+        if (data.myDislike) {
+
+//            blue_border_box로 txtDislikeCount의 배경을 변경
+            txtDislikeCount.setBackgroundResource(R.drawable.blue_border_box)
+
+            txtDislikeCount.setTextColor(mContext.resources.getColor(R.color.blue))
+
+        } else {
+
+            txtDislikeCount.setBackgroundResource(R.drawable.gray_border_box)
+
+            txtDislikeCount.setTextColor(mContext.resources.getColor(R.color.gray))
+
+        }
+
+//        각 줄의 싫어요 갯수에 이벤트 처리
         txtDislikeCount.setOnClickListener {
 
 //            이 댓글에 싫어요를 남겼다고 -> 서버 API 호출
@@ -106,7 +124,7 @@ class ReplyAdapter(
                 data.id,
                 false,
                 object : ServerUtil.JsonResponseHandler {
-                    override fun onResponse(jsonObj: JSONObject) {
+                    override fun onResponse(jsonObject: JSONObject) {
 
                         (mContext as ViewTopicDetailActivity).getTopicDetailFromServer()
 

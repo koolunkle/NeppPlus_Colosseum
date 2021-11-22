@@ -12,4 +12,14 @@
         android:textColor="@color/black"
         android:textSize="17sp" />
 
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="10dp"
+        android:padding="5dp"
+        android:src="@drawable/back_arrow_icon" />
+
+
 </FrameLayout>
