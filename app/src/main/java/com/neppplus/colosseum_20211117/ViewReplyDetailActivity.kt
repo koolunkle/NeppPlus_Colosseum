@@ -27,6 +27,22 @@ class ViewReplyDetailActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+        binding.btnOk.setOnClickListener {
+
+            val inputContent = binding.edtContent.text.toString()
+
+//            서버에 대댓글 등록 API 호출
+
+            ServerUtil.postRequestReReply(mContext, mReplyData.id, inputContent, object : ServerUtil.JsonResponseHandler{
+
+                override fun onResponse(jsonObject: JSONObject) {
+
+                }
+
+            })
+
+        }
+
     }
 
     override fun setValues() {
