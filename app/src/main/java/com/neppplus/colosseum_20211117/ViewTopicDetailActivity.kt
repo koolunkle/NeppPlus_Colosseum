@@ -32,6 +32,13 @@ class ViewTopicDetailActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+        binding.btnWriteReply.setOnClickListener {
+
+            val myIntent = Intent(mContext, EditReplyActivity::class.java)
+            startActivity(myIntent)
+
+        }
+
         binding.btnVote01.setOnClickListener {
 
 //            첫 진영에 투표 -> 서버 API 호출 -> 이 화면 새로고침
