@@ -6,7 +6,52 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp"
         tools:context=".EditReplyActivity">
+
+        <TextView
+            android:id="@+id/txtTopicTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="참여중인 토론 주제"
+            android:textSize="17sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="선택 진영 : " />
+
+            <TextView
+                android:id="@+id/txtMySideTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="실제 진영"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/edtContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:hint="긴 의견을 적어도 됩니다"
+            android:minLines="5" />
+
+        <Button
+            android:id="@+id/btnOk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="의견 등록" />
+
 
     </LinearLayout>
 
