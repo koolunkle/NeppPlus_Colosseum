@@ -28,7 +28,8 @@
         android:layout_gravity="end|center_vertical"
         android:layout_marginEnd="10dp"
         android:padding="3dp"
-        android:src="@drawable/profile_icon" />
+        android:src="@drawable/profile_icon"
+        android:visibility="gone" />
 
 
 </FrameLayout>
