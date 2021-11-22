@@ -45,9 +45,11 @@ class ViewTopicDetailActivity : BaseActivity() {
 
             }
 
-//            했다면 어디에 투표 했는지?
+//            했다면 어디에 투표 했는지? => mTopicData의 하위 정보 (mySide) 로 모두 들어있다
+//            mTopicData를 통째로 넘겨주면, 내 선택 진영도 포함되어 넘어간다
 
             val myIntent = Intent(mContext, EditReplyActivity::class.java)
+            myIntent.putExtra("topic", mTopicData)
             startActivity(myIntent)
 
         }
