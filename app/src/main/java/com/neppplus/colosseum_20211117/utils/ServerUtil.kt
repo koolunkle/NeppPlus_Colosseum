@@ -373,7 +373,12 @@ class ServerUtil {
 
 //        댓글에 좋아요 / 싫어요 찍기
 
-        fun postRequestReplyLikeOrDislike(context: Context, replyId: Int, isLike : Boolean, handler: JsonResponseHandler?) {
+        fun postRequestReplyLikeOrDislike(
+            context: Context,
+            replyId: Int,
+            isLike: Boolean,
+            handler: JsonResponseHandler?
+        ) {
 
 //            1. 어디로 가야? URL
 
@@ -434,7 +439,12 @@ class ServerUtil {
 
 //        토론에 의견 (주제에 바로 댓글) 달기
 
-        fun postRequestTopicReply(context: Context, topicId: Int, content: String, handler: JsonResponseHandler?) {
+        fun postRequestTopicReply(
+            context: Context,
+            topicId: Int,
+            content: String,
+            handler: JsonResponseHandler?
+        ) {
 
 //            1. 어디로 가야? URL
 
@@ -490,6 +500,59 @@ class ServerUtil {
 
 
             })
+
+        }
+
+//        댓글 상세 조회 (+대댓글 목록)
+        fun getRequestReplyDetail(
+            context: Context,
+            replyId: Int,
+            handler: JsonResponseHandler?
+        ) {
+
+            val urlBuilder =
+                "${HOST_URL}/topic_reply".toHttpUrlOrNull()!!.newBuilder()  // 서버주소 / 기능주소 까지만.
+
+//            주소 양식 : Path - /topic/3  => /3 PathSegment라고 부름.
+//            주소 양식 : Query - /topic?name=조경진   QueryParameter 라고 부름.
+            urlBuilder.addPathSegment(replyId.toString())
+
+//            urlBuilder.addEncodedQueryParameter("order_type", orderType)
+//            urlBuilder.addEncodedQueryParameter("value", value)
+
+
+            val urlString = urlBuilder.toString()
+
+            Log.d("완성주소", urlString)
+
+
+//            Request를 만들때 헤더도 같이 첨부.
+
+            val request = Request.Builder()
+                .url(urlString)
+                .get()
+                .header("X-Http-Token", ContextUtil.getToken(context))
+                .build()
+
+
+//            실제 API 호출 - client
+
+            val client = OkHttpClient()
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    val bodyString = response.body!!.string()
+                    val jsonObj = JSONObject(bodyString)
+                    Log.d("서버응답", jsonObj.toString())
+                    handler?.onResponse(jsonObj)
+                }
+
+
+            })
+
 
         }
 
