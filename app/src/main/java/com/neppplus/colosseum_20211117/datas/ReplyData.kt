@@ -1,10 +1,11 @@
 package com.neppplus.colosseum_20211117.datas
 
 import org.json.JSONObject
+import java.io.Serializable
 import java.text.SimpleDateFormat
 import java.util.*
 
-class ReplyData {
+class ReplyData : Serializable {
 
     var id = 0
     var content = ""
