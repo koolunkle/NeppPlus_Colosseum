@@ -31,6 +31,16 @@ class ViewTopicDetailActivity : BaseActivity() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+
+//        onResume : 이 화면이 다시 나타날때마다 계속 실행되는 함수
+//        화면에 돌아올때마다 -> 서버에서 다시 댓글 목록도 불러오게 (자동 새로고침)
+
+        getTopicDetailFromServer()
+
+    }
+
     override fun setupEvents() {
 
         binding.btnWriteReply.setOnClickListener {
@@ -113,7 +123,7 @@ class ViewTopicDetailActivity : BaseActivity() {
         Glide.with(mContext).load(mTopicData.imageURL).into(binding.imgTopic)
 
 //        현재 진행상황 조회 API 호출해보자 -> 토론 진영 목록 / 몇표 획득
-        getTopicDetailFromServer()
+//        getTopicDetailFromServer()
 
         mReplyAdapter = ReplyAdapter(mContext, R.layout.reply_list_item, mReplyList)
         binding.replyListView.adapter = mReplyAdapter
